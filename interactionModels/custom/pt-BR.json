@@ -1,0 +1,421 @@
+{
+  "interactionModel": {
+    "dialog": {
+      "intents": [
+        {
+          "slots": [
+            {
+              "name": "respostaUserSlot",
+              "elicitationRequired": true,
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.306438045782.1687505364930"
+              }
+            }
+          ],
+          "name": "TraducaoIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.1614080435942"
+          }
+        },
+        {
+          "slots": [],
+          "name": "StartRepeticaoIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        },
+        {
+          "slots": [
+            {
+              "name": "opcao",
+              "elicitationRequired": true,
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1044130474005.143442477391",
+                "confirmation": "Confirm.Slot.60124020210.1415369545224"
+              }
+            }
+          ],
+          "name": "EndRepeticaoIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        },
+        {
+          "slots": [
+            {
+              "name": "titleSlot",
+              "elicitationRequired": true,
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1600291646078.740710228130"
+              }
+            },
+            {
+              "name": "firstCharSlot",
+              "elicitationRequired": true,
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1600291646078.60963850113"
+              }
+            },
+            {
+              "name": "secondCharSlot",
+              "elicitationRequired": true,
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1600291646078.1656856044973"
+              }
+            }
+          ],
+          "name": "TitleAndCharIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.26955957837"
+          }
+        },
+        {
+          "slots": [
+            {
+              "name": "contextSlot",
+              "elicitationRequired": true,
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.138240923627.969698931088"
+              }
+            },
+            {
+              "name": "titleSlot",
+              "elicitationRequired": true,
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.138240923627.641446907958"
+              }
+            }
+          ],
+          "name": "ContextIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.138240923627"
+          }
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "slots": [],
+          "name": "HelloWorldIntent",
+          "samples": [
+            "olá",
+            "como vai você",
+            "diga oi mundo",
+            "diga oi",
+            "oi",
+            "diga olá mundo",
+            "diga olá"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "slots": [],
+          "name": "MenuIntent",
+          "samples": [
+            "menu"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "respostaUserSlot",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{respostaUserSlot}",
+                "se diz {respostaUserSlot}"
+              ]
+            }
+          ],
+          "name": "TraducaoIntent",
+          "samples": [
+            "tradução",
+            "jogo da tradução"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "StartRepeticaoIntent",
+          "samples": [
+            "repetição",
+            "jogo da repetição"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "opcao",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{opcao}"
+              ]
+            }
+          ],
+          "name": "EndRepeticaoIntent",
+          "samples": [
+            "opção {opcao}"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "titleSlot",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{titleSlot}"
+              ]
+            },
+            {
+              "name": "firstCharSlot",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{firstCharSlot}"
+              ]
+            },
+            {
+              "name": "secondCharSlot",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{secondCharSlot}"
+              ]
+            }
+          ],
+          "name": "TitleAndCharIntent",
+          "samples": [
+            "registrar título e personagens"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "MenuConversacaoIntent",
+          "samples": [
+            "conversação",
+            "jogo da conversação"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "contextSlot",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{contextSlot}"
+              ]
+            },
+            {
+              "name": "titleSlot",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{titleSlot}"
+              ]
+            }
+          ],
+          "name": "ContextIntent",
+          "samples": [
+            "registrar contextualização para {titleSlot}",
+            "registrar contextualização"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "borboleta"
+              }
+            },
+            {
+              "name": {
+                "value": "guitarra"
+              }
+            },
+            {
+              "name": {
+                "value": "girassol"
+              }
+            },
+            {
+              "name": {
+                "value": "carro"
+              }
+            },
+            {
+              "name": {
+                "value": "martelo"
+              }
+            },
+            {
+              "name": {
+                "value": "leão"
+              }
+            }
+          ],
+          "name": "LISTA_TRADUCAO"
+        }
+      ],
+      "invocationName": "minha english school"
+    },
+    "prompts": [
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Você confirma a resposta {respostaUserSlot} ?"
+          }
+        ],
+        "id": "Confirm.Intent.1614080435942"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Qual é a tradução?"
+          }
+        ],
+        "id": "Elicit.Slot.1614080435942.78866398708"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Como se diz leão em inglês?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Como se diz martelo em inglês?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Como se diz carro em inglês?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Como se diz girassol em inglês?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Como se diz guitarra em inglês?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Como se diz borboleta em inglês?"
+          }
+        ],
+        "id": "Elicit.Slot.306438045782.1687505364930"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Qual opção desejada?"
+          }
+        ],
+        "id": "Elicit.Slot.1044130474005.143442477391"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Você confirma a opção {opcao} ?"
+          }
+        ],
+        "id": "Confirm.Slot.60124020210.1415369545224"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Qual será o título da sua história?"
+          }
+        ],
+        "id": "Elicit.Slot.1600291646078.740710228130"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Qual será o nome do primeiro personagem da sua história?"
+          }
+        ],
+        "id": "Elicit.Slot.1600291646078.60963850113"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Qual será o nome do segundo personagem da sua história?"
+          }
+        ],
+        "id": "Elicit.Slot.1600291646078.1656856044973"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Você confirma o título  {titleSlot} , o primeiro personagem {firstCharSlot}  e o segundo personagem {secondCharSlot} ?"
+          }
+        ],
+        "id": "Confirm.Intent.26955957837"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Qual será a contextualização de sua história?"
+          }
+        ],
+        "id": "Elicit.Slot.138240923627.969698931088"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Qual título você deseja adicionar uma contextualização?"
+          }
+        ],
+        "id": "Elicit.Slot.138240923627.641446907958"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Você confirma a seguinte contextualização {contextSlot} para a história de título {titleSlot} ?"
+          }
+        ],
+        "id": "Confirm.Intent.138240923627"
+      }
+    ]
+  }
+}
