@@ -105,6 +105,42 @@
           "prompts": {
             "confirmation": "Confirm.Intent.138240923627"
           }
+        },
+        {
+          "slots": [
+            {
+              "name": "titleSlot",
+              "elicitationRequired": true,
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1388933453355.149640167360"
+              }
+            },
+            {
+              "name": "opcaoSlot",
+              "elicitationRequired": true,
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1388933453355.77737798414"
+              }
+            },
+            {
+              "name": "encerramentoSlot",
+              "elicitationRequired": true,
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1388933453355.82173549044"
+              }
+            }
+          ],
+          "name": "EndConversationIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.143494131180"
+          }
         }
       ],
       "delegationStrategy": "ALWAYS"
@@ -245,6 +281,36 @@
           "samples": [
             "registrar contextualização para {titleSlot}",
             "registrar contextualização"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "titleSlot",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{titleSlot}"
+              ]
+            },
+            {
+              "name": "opcaoSlot",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{opcaoSlot}"
+              ]
+            },
+            {
+              "name": "encerramentoSlot",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{encerramentoSlot}"
+              ]
+            }
+          ],
+          "name": "EndConversationIntent",
+          "samples": [
+            "registrar encerramento para {titleSlot}",
+            "registrar encerramento"
           ]
         }
       ],
@@ -415,6 +481,42 @@
           }
         ],
         "id": "Confirm.Intent.138240923627"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Qual título você deseja adicionar um encerrramento?"
+          }
+        ],
+        "id": "Elicit.Slot.1388933453355.149640167360"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Deseja registrar um encerramento para {titleSlot} ?"
+          }
+        ],
+        "id": "Elicit.Slot.1388933453355.77737798414"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Qual será o encerramento da história {titleSlot} ?"
+          }
+        ],
+        "id": "Elicit.Slot.1388933453355.82173549044"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Você confirma o encerramento {encerramentoSlot} para a história {titleSlot} ?"
+          }
+        ],
+        "id": "Confirm.Intent.143494131180"
       }
     ]
   }

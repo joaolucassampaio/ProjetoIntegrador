@@ -160,7 +160,7 @@ const EndRepeticaoIntentHandler = {
         const sentenca = sentencas[currentSentenceIndex];
         
         if (opcaoCode.toLowerCase() === sentenca.resposta) {
-            speakOutput = `Isso mesmo! Repita comigo: "${sentenca.sentenca}.". Caso queira jogar novamente, diga "jogo da repetição".`
+            speakOutput = `Isso mesmo, você acertou! A resposta é a opção "${opcaoCode}". Repita comigo: "${sentenca.sentenca}.". Caso queira jogar novamente, diga "jogo da repetição".`
         } else {
             speakOutput = `Não foi dessa vez! A opção correta é a "${sentenca.resposta}"; "${sentenca.opcoes[sentenca.resposta - 1]}.". Para fixar, repita comigo:
             "${sentenca.sentenca}.". Caso queira jogar novamente, diga "jogo da repetição.`
@@ -183,7 +183,7 @@ const TitleAndCharIntentHandler = {
         const titleCode = Alexa.getSlotValue(handlerInput.requestEnvelope, 'titleSlot');
         const firstCharCode = Alexa.getSlotValue(handlerInput.requestEnvelope, 'firstCharSlot');
         const secondCharCode = Alexa.getSlotValue(handlerInput.requestEnvelope, 'secondCharSlot');
-        const speakOutput = `Título e personagens registrados com sucesso!`;
+        const speakOutput = `Título "${titleCode}", personagens ${firstCharCode} e "${secondCharCode}" registrados com sucesso!`;
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -210,8 +210,31 @@ const ContextIntentHandler = {
 };
 
 //Intenção 15: Registro de encerramento para histórias
+const EndConversationIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'EndConversationIntent';
+    },
+    handle(handlerInput) {
+        let speakOutput = ''
+        let opcaoCode = Alexa.getSlotValue(handlerInput.requestEnvelope, 'opcaoSlot');
+        
+        if(opcaoCode.toLowerCase() === "sim" || opcaoCode.toLowerCase() === undefined) {
+            let titleCode = Alexa.getSlotValue(handlerInput.requestEnvelope, 'titleSlot');
+            let nomeCode = Alexa.getSlotValue(handlerInput.requestEnvelope, 'nomeSlot');
+            speakOutput = 'Encerramento salvo com sucesso!';
+        } else {
+            speakOutput = 'Diga "menu" caso queira voltar ao menu de opções.';
+        }
 
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .getResponse();
+    }
+};
 
+//Jogo da repetição (o que falta fazer?) -> intenção de diálogos e intenção de ouvir história
 
 ////////////////////////////////////////////////////////////INTENÇÕES PADRÕES//////////////////////////////////////////////////////////////////////////////////////////////////////////
 const HelpIntentHandler = {
@@ -328,6 +351,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         TitleAndCharIntentHandler,
         MenuConversacaoIntentHandler,
         ContextIntentHandler,
+        EndConversationIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         FallbackIntentHandler,
