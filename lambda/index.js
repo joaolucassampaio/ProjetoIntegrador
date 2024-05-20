@@ -183,7 +183,7 @@ const TitleAndCharIntentHandler = {
         const titleCode = Alexa.getSlotValue(handlerInput.requestEnvelope, 'titleSlot');
         const firstCharCode = Alexa.getSlotValue(handlerInput.requestEnvelope, 'firstCharSlot');
         const secondCharCode = Alexa.getSlotValue(handlerInput.requestEnvelope, 'secondCharSlot');
-        const speakOutput = `Título "${titleCode}", personagens ${firstCharCode} e "${secondCharCode}" registrados com sucesso!`;
+        const speakOutput = `Título "${titleCode}", personagens "${firstCharCode}" e "${secondCharCode}" registrados com sucesso!`;
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -199,8 +199,9 @@ const ContextIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ContextIntent';
     },
     handle(handlerInput) {
-        const contextCode = Alexa.getSlotValue(handlerInput.requestEnvelope, 'contextSlot');
-        const speakOutput = `Contextualização salva com sucesso!`;
+        let titleCodeDois = Alexa.getSlotValue(handlerInput.requestEnvelope, 'titleSlotDois');
+        let contextCode = Alexa.getSlotValue(handlerInput.requestEnvelope, 'contextSlot');
+        const speakOutput = `Contextualização para a história "${titleCodeDois}" salva com sucesso!`;
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -222,7 +223,7 @@ const EndConversationIntentHandler = {
         if(opcaoCode.toLowerCase() === "sim" || opcaoCode.toLowerCase() === undefined) {
             let titleCode = Alexa.getSlotValue(handlerInput.requestEnvelope, 'titleSlot');
             let nomeCode = Alexa.getSlotValue(handlerInput.requestEnvelope, 'nomeSlot');
-            speakOutput = 'Encerramento salvo com sucesso!';
+            speakOutput = `Encerramento para a história "${titleCode}" salvo com sucesso!`;
         } else {
             speakOutput = 'Diga "menu" caso queira voltar ao menu de opções.';
         }

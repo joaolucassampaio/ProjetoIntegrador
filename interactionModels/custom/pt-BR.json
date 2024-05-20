@@ -91,12 +91,12 @@
               }
             },
             {
-              "name": "titleSlot",
+              "name": "titleSlotDois",
               "elicitationRequired": true,
               "type": "AMAZON.SearchQuery",
               "confirmationRequired": false,
               "prompts": {
-                "elicitation": "Elicit.Slot.138240923627.641446907958"
+                "elicitation": "Elicit.Slot.1473464396863.70398834395"
               }
             }
           ],
@@ -270,17 +270,17 @@
               ]
             },
             {
-              "name": "titleSlot",
+              "name": "titleSlotDois",
               "type": "AMAZON.SearchQuery",
               "samples": [
-                "{titleSlot}"
+                "{titleSlotDois}"
               ]
             }
           ],
           "name": "ContextIntent",
           "samples": [
-            "registrar contextualização para {titleSlot}",
-            "registrar contextualização"
+            "registrar contextualização",
+            "registrar contextualização para {titleSlotDois}"
           ]
         },
         {
@@ -459,7 +459,7 @@
         "variations": [
           {
             "type": "PlainText",
-            "value": "Qual será a contextualização de sua história?"
+            "value": "Qual será a contextualização da história {titleSlotDois} ?"
           }
         ],
         "id": "Elicit.Slot.138240923627.969698931088"
@@ -468,16 +468,7 @@
         "variations": [
           {
             "type": "PlainText",
-            "value": "Qual título você deseja adicionar uma contextualização?"
-          }
-        ],
-        "id": "Elicit.Slot.138240923627.641446907958"
-      },
-      {
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "Você confirma a seguinte contextualização {contextSlot} para a história de título {titleSlot} ?"
+            "value": "Você confirma a seguinte contextualização {contextSlot} para a história de título {titleSlotDois} ?"
           }
         ],
         "id": "Confirm.Intent.138240923627"
@@ -517,6 +508,15 @@
           }
         ],
         "id": "Confirm.Intent.143494131180"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Qual título você deseja adicionar uma contextualização?"
+          }
+        ],
+        "id": "Elicit.Slot.1473464396863.70398834395"
       }
     ]
   }
